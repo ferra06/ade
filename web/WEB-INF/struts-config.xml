@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <!-- ========================= form-beans ===============================-->
+    <!--
+    Definicion de todos los Form usados en los JSP
+    -->
+    <form-beans>
+        <form-bean name="OficinaForm" type="com.ade.action.form.OficinaForm"/>
+        <form-bean name="LoginForm" type="com.ade.action.form.LoginForm"/>
+    </form-beans>
+    
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+    
+    <!-- ====================== global-forwards =============================-->
+    <!--
+    forwards (reenviar)
+    Es habitual que varias acciones termien redirigiendo a la misma página como
+    menú principal o página de error. Por eso, en la mayoría de aplicaciones 
+    es útil también tener forwards "globales".
+    -->
+    <global-forwards>
+            <forward name="error" path="/lists/error.page"/>
+    </global-forwards>
+    
+
+    <!-- ====================== action-mappings =============================-->
+    <!--
+    Todos los mapeados entre peticiones y acciones se colocan dentro de la 
+    etiqueta XML <action-mappings>
+    Cada mapeado concreto es un <action>, cuyos atributos:
+    path es la petición (http://localhost:8084/ade/login.do)
+    type es el nombre de la clase que implementa la acción.
+    dentro de cada <action> hay uno o más <forward> que son los posibles resultados 
+    de la acción. Asocian un nombre simbólico con una vista. forwards (reenviar)
+    -->
+    <action-mappings>
+        <action 
+            path="/usuario"
+            type="com.ade.action.UsuariosAction"
+            input="/form/usuario.jsp"
+            name="UsuarioForm"  
+            scope="session">
+            <!-- forward locales del action (No accesibles por otros action) -->
+            <forward name="login" path="/form/login.page"/>
+            <forward name="cambiar" path="/form/cambiarClave.page"/>
+            <forward name="usuario" path="/form/usuario.page"/>
+        </action>
+        
+        <action 
+            input="/" 
+            name="OficinaForm" 
+            path="/oficina" 
+            scope="session" 
+            type="com.ade.action.OficinasAction">
+            <forward name="oficina" path="/form/oficina.page"/>
+        </action>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>
