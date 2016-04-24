@@ -1,1 +1,5 @@
 
+
+ActionForms
+Aunque los datos introducidos en formularios pueden obtenerse dentro del código de las acciones directamente de la petición HTTP 
+Struts ofrece un mecanismo alternativo que proporciona distintas ventajas: los ActionForms.
