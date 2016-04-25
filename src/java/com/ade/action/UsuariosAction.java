@@ -1,8 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Action resuelve las peticiones que son enviadas desde el cliente (Navegador) JSP.
+ *
+ * http://localhost:8080/ADE/actions/UsuariosAction.do?do=loginUser
+ * 
+ * De la url anterior anterior la clase peticion es resuleta por
+ * La clase UsuariosAction con el metodo loginUser.
+ * 
  */
+ 
 package com.ade.action;
 
 import javax.servlet.http.HttpServletRequest;
