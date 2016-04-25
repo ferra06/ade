@@ -37,8 +37,10 @@
     Todos los mapeados entre peticiones y acciones se colocan dentro de la 
     etiqueta XML <action-mappings>
     Cada mapeado concreto es un <action>, cuyos atributos:
-    path es la petición (http://localhost:8084/ade/login.do)
-    type es el nombre de la clase que implementa la acción.
+    path: es la petición (http://localhost:8084/ade/usuario.do)
+    type: es el nombre de la clase que implementa la acción.
+    name: indica el nombre simbólico para el ActionForm. 
+    scope: 
     dentro de cada <action> hay uno o más <forward> que son los posibles resultados 
     de la acción. Asocian un nombre simbólico con una vista. forwards (reenviar)
     -->
