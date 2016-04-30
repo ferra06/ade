@@ -1,5 +1,5 @@
 
-html:text>: utilizado para mostrar cajas de texto, de una sola linea. 
+<html:text>: utilizado para mostrar cajas de texto, de una sola linea. 
 
 	Importar : <%@ taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html"%>
 

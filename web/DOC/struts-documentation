@@ -1,0 +1,429 @@
+
+<html:text>: utilizado para mostrar cajas de texto, de una sola linea. 
+
+	Importar : <%@ taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html"%>
+
+	property : Aqui se indica la entidad, es decir, la instancia de la clase con la cual se esta trabajando, esto se coloca de la siguiente manera: 
+		   'entity.<metodo>' en el caso de un AbmAction. Si este fuese un ProcessAction, deberia de ser reemplazado por 'process.<metodo>'.
+	maxlength: Indica la cantidad maxima de caracteres que se permiten ingresar.
+	size	 : Tamano del control en pantalla.
+	disabled : Desactiva el control. No recomendado. Utilice en su lugar readonly.
+	readonly : Vuelve al control de solo lectura.
+	styleId	 : Utilizado para asignar un ID al control.
+	value	 : Utilizado para asignar un valor al control.
+
+<html:hidden>: utilizado cuando se requiere que cierta información este presente en la pagina pero que no sea visible para el usuario. 
+
+	property : Aqui se indica la entidad, es decir, la instancia de la clase con la cual se esta trabajando, esto se coloca de la siguiente manera: 
+		       'entity.<metodo>' en el caso de un AbmAction. Si este fuese un ProcessAction, deberia de ser reemplazado por 'process.<metodo>'.
+	value	 : Utilizado para asignar un valor al control.
+
+<html:textarea>: utilizado para mostrar cajas de texto multilinea.
+
+	property : Aqui se indica la entidad, es decir, la instancia de la clase con la cual se esta trabajando, esto se coloca de la siguiente manera: 
+		   'entity.<metodo>' en el caso de un AbmAction. Si este fuese un ProcessAction, deberia de ser reemplazado por 'process.<metodo>'.
+	cols	 : Determina el numero de columnas que son visibles al mismo tiempo. Por convención se debera de poner este valor a 40.
+	rows	 : Determina el numero de filas visibles, por convención se debera de poner este valor a 4.
+	readonly : Vuelve al control de solo lectura.
+	styleId	 : Utilizado para asignar un ID al control.
+	value	 : Utilizado para asignar un valor al control.
+
+<logic:present>: Utilizado para tomar decisiones dependiendo de ciertas condiciones. Para utilizarlo es necesario incluir: 
+
+	Importar : <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic"%>
+
+	parameter: Utilizado para determinar si en la URL esta presente el valor indicado por este.
+
+<logic:notPresent>: Se utiliza de la misma forma que el anterior, pero con este se evalua la condición opuesta.
+
+
+<logic:empty>: Utilizado para saber, si una determinada propiedad es nula o no.
+
+	parameter : Utilizado para determinar el parametro a evaluar.
+
+<logic:notEmpty>: Se utiliza de la misma forma que el anterior, pero con este se evalua la condición opuesta.
+
+
+<logic:equal>: Utilizado para realizar comparaciones.
+
+	parameter: Utilizado para determinar el parametro a evaluar.
+	property : Aqui se indica la entidad, es decir, la instancia de la clase con la cual se esta trabajando, esto se coloca de la siguiente manera: 'entity.<metodo>' 
+	value	 : El valor contra el cual se comparara la expresión.
+
+<logic:notEqual>: Se utiliza de la misma forma que el anterior, pero con este se evalua la condición opuesta.
+
+
+<bean:define>: Esto define un objeto el cual tendra getters y setters. Para utilizarlo, es necesario que se incluya: 
+
+	Importar : <%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean"%>
+
+	id	 : Define un identificador unico para el objeto.
+	name	 : Asigna un nombre al objeto.
+	scope	 : Define la visibilidad del objeto, por convención se utiliza con el valor 'session'.
+	type	 : Indica el tipo de datos que va a manejar. Valores posibles son: Object[] para filtros y el que sea necesario para el resto de los casos, ejemplos Long, String, etc.
+
+
+<bean:write>: Utilizado para escribir datos provenientes de un origen de datos o un bean, en la pagina.
+
+	name	 : Nombre del bean, el cual contiene la información que queremos mostrar por pantalla.
+	property : Propiedad del bean, que queremos imprimir en pantalla.
+
+
+<display:table>: Este se utiliza en los LIST para mostrar el contenido de los objetos en forma de tablas. Para utilizarlo es necesario incluir: 
+
+	Importar : <%@ taglib uri="/WEB-INF/displaytag-12.tld" prefix="display"%>
+
+	name	 : Permite asignarle un nombre a la tabla. Segun el manual, 'referencia al objeto usado como fuente para la tabla.'
+	export  : Activa o desactiva la exportación, valores posibles true/false.
+	id	 : Se asigna un identificador unico para el objeto.
+	requestURI:Los link para ordenar, exportar y paginar, son formados agregandoles el valor de esta propiedad.
+	property :
+
+
+<display:setProperty>: Sirve para setear valores a las propiedades del displayTable.
+
+	name	 : Nombre de la propiedad a setear.
+	value	 : Valor a asignar.
+
+<display:column>: Representa una columna.
+
+	property : Atributo, o columna, de la Base de Datos de la cual se obtendran los datos a mostrar.
+	title	 : Titulo a visualizar en la pagina.
+	href	 : Base estatica para construir los links dinamicos.
+	paramId	 : El nombre del parametro de respuesta que sera dinamicamente agregado al href generado. El valor correspondiente, lo define el paramProperty o en su defecto el paramName.
+	paramProperty : El nombre de la propiedad del actual objeto que esta siendo iterado, el cual devolvera un valor que 
+	                sera usado como valor del parametro especificado con el atributo paramId.
+	sorteable: Indica si la columna podra ser ordenada o no.
+	media	 : Indica el medio (pdf, html, excel, xml), en el cual la columna sera renderizada. Es una lista separada por espacios.
+	sortProperty: Indica por la propiedad que sera ordenada la columna.
+	honClick : Implementación del evento onClic.
+
+
+
+Tag Creados por Aconcagua Software Factory (ASF).
+
+Para poder utilizarlos se debera de incluir: <%@ taglib uri="/WEB-INF/asf-taglib.tld" prefix="asf"%>
+
+<asf:calentar>: Utilizado para mostrar un calendario.
+	property : Aqui se indica la entidad, es decir, la instancia de la clase con la cual se esta trabajando, esto se coloca de la siguiente manera: 'entity.<metodo>' en el caso de un 		           AbmAction. Si este fuese un ProcessAction, deberia de ser reemplazado por 'process.<metodo>'.
+	readonly : Vuelve al control de solo lectura.
+	toolTips : Especifica ayuda extra para el usuario. Esta es visualizada cuando se coloca el puntero del mouse sobre el control.
+	maxlength: Indica la cantidad maxima de caracteres a ingresar.
+
+	Al pie de cada pagina que utilice este control, se debera de incluir, una sola vez, el siguiente código:
+
+<iframe width=174 height=189 name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" src="${pageContext.request.contextPath}/calendar/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; top:-500px; left:-500px;"></iframe>
+
+	Este código es el encargado de mostrar el frame que contiene el calendario.
+
+
+<asf:select>: Este es un combo, el cual toma los datos que muestra desde un objeto.
+
+	enabled	   : Desactiva el control. Cuando se lo utiliza, el control deja de llamar a los setters y getters correspondientes, esto es debido a que el control se desactiva. 
+                     Por ello es necesario que se incluya un hidden con el mismo valor en la propiedad 'property'.
+	name	   : Nombre del control.
+	value	   : Valor que toma el control cuando se carga.
+	entityName : Entidad (objeto) de la cual obtiene los datos.
+	listValues : El valor que identifica a un registro de forma univoca en la Base de Datos. Hay que separarlos por comas, aqui van los getters.
+	listCaption: Lista de valores que se mostraran en el control. Hay que separarlos por comas, aqui van los getters.
+	filter	   : Expresión SQL correspondiente al WHERE de la consulta con la que se carga el combo.
+	nullText   : Valor que tomara el caption para representar un valor nulo.
+	nullValue  : Valores permitidos true/false. Si no se especifica nullText, el caption tomara el valor 'Null'
+	attribs	   : Utilizado para especificar cualquier otro comportamiento. Por ej. la respuesta a un evento determinado.
+	toolTips   : Especifica ayuda extra para el usuario. Esta es visualizada cuando se coloca el puntero del mouse sobre el control.
+	class	   :
+	limit 	   :
+	style	   :
+
+<asf:selectpop>: Este abre una ventana emergente (pop-up) en la cual se pueden realizar busquedas.
+
+	name	  : Este es el nombre del control. Por convención es 'paramValue[0]'.
+	columns	  : Este es un caption que se mostrara en el pop-up.
+	captions  : Estos son los getters, desde donde se obtendra la información necesaria. Van separados por comas.
+	entityName: Entidad (objeto) de la cual obtiene los datos.
+	value	  : Valor que toma el control cuando se carga.
+	attribs	  : Utilizado para especificar cualquier otro comportamiento. Por ej. la respuesta a un evento determinado.
+	enabled	  : Desactiva el control.
+	title	  :
+	values	  :
+
+
+<asf:lselect>: Este es un combo linkeado.
+
+	entityName : Entidad (objeto) de la cual obtiene los datos.
+	listValue  : El valor que identifica a un registro de forma univoca en la Base de Datos. Hay que separarlos por comas, aqui van los getters.
+	listCaption: Lista de valores que se mostraran en el control. Hay que separarlos por comas, aqui van los getters.
+	enabled	   : Activa o desactiva el control.
+	property   :
+	value:
+	linkFK:
+	linkName:
+	attribs:
+	filter:
+	form:
+	htmlClass:
+	linkForm:
+	style:
+
+
+<asf:menu>:
+	
+	idmodulo:
+
+
+
+
+
+<html:form action="/actions/abmAction.do?entityName=${param.entityName}&filter=true">
+<b>Legajo:</b>
+<asfgrh:legajopopup property="paramValue[0]" value="${paramValue[0]}"/><br>
+<html:hidden property="paramName[0]" styleId="paramName" value="lega12" />
+<html:hidden property="paramComp[0]" styleId="paramComp" value="="/>
+<html:hidden property="filter" value="true"/>
+<html:hidden property="do" styleId="do" value="list"/>
+<html:submit onclick="getElem('do').value='newEntity';"><bean:message key="abm.button.new"/></html:submit>
+<html:submit onclick="getElem('do').value='list';">Consultar</html:submit>
+</html:form>
+
+
+
+
+
+La taglib HTML de Struts
+Struts viene con varias taglibs: de ellas, la más importante es la HTML, que es la que sirve para capturar/mostrar los datos de los ActionForms.Esta taglib es muy útil en cualquier aplicación de Struts. Entre otras cosas, podemos volver a mostrar los valores introducidos en un formulario si se ha producido un error en alguno sin que el usuario tenga que rellenarlos todos de nuevo y generar checkboxes, opciones de un select etc a partir de colecciones o arrays, sin tener que hacerlas una por una.
+
+Las otras taglibs (logic, bean,...) aunque también muy útiles en su momento, quedaron obsoletas con la aparición de JSTL. Por tanto discutiremos aquí únicamente la taglib de HTML. Además, nos centraremos sobre todo en la definición de formularios y campos de formulario.
+
+Para poder usar la taglib HTML en un JSP, hay que incluir en el JSP la directiva
+
+  <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+  
+La versión "clásica" de la taglib HTML no permite el uso del lenguaje de expresiones (EL). Si deseamos usarlo en nuestras páginas, hay que importar a nuestro proyecto el archivo struts-el.jar y usar en los JSPs la directiva
+
+ <%@ taglib uri="http://struts.apache.org/tags-html-el" prefix="html-el" %>
+
+Enlaces
+Se pueden generar enlaces a acciones con la etiqueta link. En su variante más simple, un enlace a la acción "login" se haría con:
+
+<html:link action="/login">Login</html:link>
+Nótese que en el tag se usa directamente el nombre de la acción, no la URL (que sería habitualmente login.do)
+
+<html:link
+href="${pageContext.request.contextPath}/actions/objetoi.do?do=list&ofic99=1&filter=true&padrOi=${param.idoiPadron}" >Inmueble
+</html:link>
+
+Normalmente los enlaces a acciones requerirán algún tipo de parámetro. Por ejemplo, podríamos necesitar que se generara el siguiente enlace:
+
+<a href="editUsuario.do?login=pepe">Editar usuario</a>
+Con el tag link podemos generar dicho parámetro. Lo interesante es que podemos sacar el valor del parámetro de un bean o de un actionform. Con el atributo paramId especificamos el nombre del parámetro a generar. paramName es el nombre del bean del que se obtiene el parámetro, y paramProperty la propiedad del bean que nos da su valor. Suponiendo que tenemos un bean accesible llamado usuario, con una propiedad login, podemos hacer
+
+<html:link action="/editUsuario" paramId="login" paramName="usuario" paramProperty="login">
+  Editar usuario
+</html:link>
+
+
+
+Definición de un formulario
+Lo primero que necesitamos para definir un formulario con las taglibs de Struts es una acción a ejecutar y un ActionForm asociado a dicha acción. Sin acción o ActionForm no tiene mucho sentido usar para el formulario la taglib de Struts (usaríamos directamente un formulario HTML).
+
+En general, las etiquetas de la taglib HTML de Struts son muy similares a su contrapartida HTML. El caso de la definición de formulario no es una excepción. Por ejemplo, vamos a ir viendo cómo se podría hacer un formulario de registro de nuevo usuario con las taglibs de Struts:
+
+  
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+  <html>
+  <head><title>Ejemplo de tag form<title></head>
+  <body>
+    <html:form action="/registrar">
+     <-- aquí vienen los campos. Ahora veremos cómo se definen -->
+    </html:form> 
+  </body>
+  </html>
+  
+La primera diferencia que se puede observar entre este formulario y uno HTML (aparte del prefijo html:) es que el nombre del action no es una URL "física" sino una acción de Struts.
+
+El primer campo que necesitamos para que al menos los datos lleguen al servidor es un botón de tipo submit. Struts nos ofrece además la posibilidad de definir un botón para cancelar. Veamos de nuevo el ejemplo anterior (pero ahora omitiendo el HTML de fuera del formulario).
+
+  
+<html:form action="/registrar">
+   <html:submit>Registrar nuevo usuario</html:submit>
+   <html:cancel>Cancelar</html:cancel>
+</html:form>
+  
+Como vemos, la principal diferencia de sintaxis con el HTML "puro" es que el "cartel" del botón se pone dentro de la etiqueta, en lugar de con el atributo "value". La acción asociada se disparará se haya pulsado en el submit o en el cancel, pero en este último caso el método isCancelled de la clase Action devolverá true.
+
+   ...
+    public ActionForward execute(
+            ActionMapping mapping,
+            ActionForm form,
+            HttpServletRequest request,
+            HttpServletResponse response)
+            throws Exception {
+    	...		
+    	if (isCancelled(request)) {
+    		...
+    	}
+    	...
+   }      
+  
+Cuando una acción se cancela no se efectúa la validación del ActionForm. Struts controla la cancelación enviando un parámetro HTTP especial, lo cual puede dar lugar a que usuarios malintencionados intenten manipular este parámetro para evitar la validación. En Struts 1.2.X, a partir de la versión 1.2.9 cuando una acción es cancelable hay que especificarlo en el struts-config.xml:
+
+<action path="/registrar"
+        input="/registrar.jsp"
+        validate="true">
+    <set-property property="cancellable" value="true"/>
+    <forward name="OK" path="/resultado.jsp"/>
+</action>
+  
+En caso de no hacer esto, la acción lanzará una excepción de tipo InvalidCancelException.
+
+A partir de Struts 1.3.X esto se hace con un atributo cancellable
+
+<action path="/registrar"
+        input="/registrar.jsp"
+        validate="true" cancellable="true">
+    <forward name="OK" path="/resultado.jsp"/>
+</action>
+  
+
+
+Campos de texto
+Los campos para introducir texto son muy similares a los de HTML, con la diferencia de que en lugar de elegir el tipo de campo con el atributo type se hace con la propia etiqueta. El atributo property nos permite asociar un campo a la propiedad del mismo nombre del ActionForm asociado al formulario. Por ejemplo:
+
+  
+<html:form action="/registrar">
+   <html:text property="login">Introduce aquí el nombre que deseas tener</html:text>
+   <html:password property="password"/>
+   <html:submit>Registrar nuevo usuario</html:submit>
+   <html:cancel>Cancelar</html:cancel>
+</html:form>
+  
+Para que el ejemplo funcione, debemos tener un ActionForm asociado a la acción "registrar" que tenga al menos las propiedades login y password. Como ya se ha visto en el ciclo de vida de los ActionForms, cuando se rellena el formulario Struts copiará los datos introducidos en las propiedades correspondientes del ActionForm. A la inversa, si el método validate() del ActionForm devuelve false y el struts-config.xml indica que hay que volver a la misma página, Struts copiará los datos desde el ActionForm al formulario, para que el usuario pueda corregirlos.
+
+En el caso de las contraseñas, puede que no resulte adecuado volver a mostrar el valor introducido. Para ello se utiliza el atributo redisplay, al que hay que asignar el valor false
+
+Como es de esperar a estas alturas (visto el resto de etiquetas) los campos de texto multilínea se consiguen con la etiqueta html:textarea.
+
+<html:textarea property="descripcion" cols="40" rows="6"/>
+  
+
+
+Cuadros de lista
+La sintaxis de los cuadros de lista es prácticamente idéntica a la de HTML, si es que vamos a poner las opciones manualmente, una por una:
+
+<html:select property="sexo">
+   <html:option value="H">Hombre</html:option>
+   <html:option value="M">Mujer</html:option>
+   <html:option value="N">No especificado</html:option>
+</html:select>
+  
+Struts asociará este campo a la propiedad "sexo" del ActionForm correspondiente a la acción ejecutada
+
+Tomar los valores para "option" automáticamente de un objeto
+Lo interesante es que Struts puede tomar los valores del select de una colección o un array, ahorrándonos el tener que especificar las opciones "a mano". Para ello, debemos tener en la petición o la sesión el array con las opciones. La manera más sencilla de conseguir esto (sin meterlo en el propio JSP) es ponerlo en la acción que nos lleva a la página con el formulario. Veamos un ejemplo, con el siguiente struts-config.xml
+
+...
+<form-beans>
+   <form-bean name="FormRegistro" type="actionForms.FormRegistro"/>
+</form-beans>
+...
+<action-mappings>
+    <action
+       path="/prepararRegistro"
+       type="acciones.AccionPrepararRegistro">
+       <forward name="OK" path="/registro.jsp"/>            
+    </action>
+    <action
+       path="/registrar"
+       name="FormRegistro" scope="request" 
+       type="acciones.AccionRegistrar">
+       <forward name="OK" path="/resultRegistro.jsp"/>
+    </action>
+</action-mappings>
+...
+  
+Como vemos, la acción AccionPrepararRegistro muestra la página registro.jsp, que contiene el formulario que veíamos en los ejemplos anteriores. Este formulario llama a registrar.do, que resulta en la ejecución de AccionRegistrar. El sitio más adecuado para colocar en algún ámbito (petición, sesión o aplicación) la lista de opciones para el select sería entonces en AccionPrepararRegiatro, simplemente haciendo algo como
+
+String[] lista = { "Hombre", "Mujer", "No especificado"};
+request.setAttribute("listaSexos", lista);  
+  
+Nótese que aunque hemos usado un array, listaSexos podría ser cualquier tipo de Collection
+
+Ahora podemos decirle a Struts en el HTML que tome las opciones del objeto listaSexos. Automáticamente buscará este en la petición, sesión y aplicación, por este orden.
+
+<html:select property="sexo">
+   <html:options value="listaSexos"/>
+</html:select>
+  
+Esto nos generará un select en HTML en el que tanto los atributos "value" como las etiquetas que se muestran en pantalla se toman de listaSexos. Si deseamos que los value sean distintos a las etiquetas haríamos algo como
+
+<html:select property="sexo">
+   <html:options name="codSexos" labelName="listaSexos"/>
+</html:select>
+Así, los valores del atributo value se tomarán del objeto codSexos (que debemos haber instanciado antes) y las etiquetas que se muestran en pantalla de listaPerfiles
+
+Tomar los valores para "option" automáticamente de un ActionForm
+Podemos también tomar los valores para las etiquetas "option" de un ActionForm. Lo más lógico es usar el asociado al formulario (hablando con más propiedad, el asociado a la acción disparada por el formulario). En ese caso, debemos añadir a nuestro ActionForm un método "getXXX" que devuelva un array o colección con el que se rellenará el cuadro de lista. Por ejemplo:
+
+  public class FormRegistro {
+   ...
+   private static String[] listaSexos = { "Hombre", "Mujer", "No especificado"};
+   
+   public String[] getListaSexos() {
+	   return listaSexos;
+   }
+   ...
+  
+Ahora, en el JSP hacemos
+
+...
+<html:select property="sexo">
+  <html:options property="listaSexos"/>
+</html:select>
+...
+  
+También podemos tomar de un "getXXX" los valores del atributo "value" y de otro "getYYY" las etiquetas que se muestran en pantalla. Para especificar de dónde sacar las etiquetas, usaremos el atributo labelProperty de <html:options>.
+
+
+
+Botones de radio
+La etiqueta de Struts para definir botones de radio es prácticamente equivalente a la de HTM, con la diferencia básica de que podemos asociar el botón a una propiedad de un ActionForm:
+
+<html:radio property="sexo" value="hombre"/> hombre
+<html:radio property="sexo" value="mujer"/> mujer 
+  
+Para generar varios botones de radio con distintos value de manera automática no tendremos más remedio que usar JSTL, ya que Struts no ofrece ningún mecanismo para hacerlo. Por ejemplo, supongamos que el ActionForm FormRegistro tiene un método getListaSexos que devuelve los valores posibles para el sexo, como en el ejemplo de la sección anterior. Podríamos hacer:
+
+  
+<%@ taglib uri="http://struts.apache.org/tags-html-el" prefix="html-el" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+...  
+<c:forEach items="${FormRegistro.listaSexos}" var="sexo">
+   <html-el:radio property="sexo" value="${sexo}"/> ${sexo}
+</c:forEach>  
+  
+  
+Nótese que en el ejemplo anterior hemos usado la versión EL de la taglib para poder emplear el lenguaje de expresiones dentro de las etiquetas de Struts.
+
+Casillas de verificación
+Struts nos ofrece dos etiquetas para hacer casillas de verificación (checkboxes), según si queremos una sola casilla o una serie de casillas relacionadas. En el primer caso, la asociación se hace con una propiedad booleana de un ActionForm y en el segundo con un array de valores, normalmente Strings (ya que en este caso podemos marcar varias casillas simultáneamente)
+
+Cuando queremos una única casilla podemos usar la etiqueta checkbox, que es prácticamente equivalente a su contrapartida HTML:
+
+
+<html:checkbox property="publi"/> Sí, deseo recibir publicidad sobre sus productos
+  
+El checkbox se asociaría a una propiedad booleana del ActionForm llamada "publi". Deben existir los métodos isPubli/getPubli para que Struts pueda consultar/fijar su valor.
+
+Para hacer más de una casilla de verificación asociada a una sola propiedad de un ActionForm se usa la etiqueta multibox. Dentro de la etiqueta hay que poner el valor que se añadirá a la propiedad. Decimos que se añadirá porque la propiedad debe ser un array de valores, donde se colocarán los asociados a las casillas marcadas.
+
+
+<html:multibox property="aficiones">cine</html:multibox> Cine
+<html:multibox property="aficiones">música</html:multibox> Música
+<html:multibox property="aficiones">videojuegos</html:multibox> Videojuegos
+  
+Como en el caso de los botones de radio, si tenemos muchas opciones es más conveniente generar las casillas de manera automática. Esto tendremos que hacerlo iterando sobre una colección con los valores, como en la sección anterior. Suponiendo que el ActionForm tiene un método getListaAficiones que devuelve un array con "cine", "música" y "videojuegos", El ejemplo anterior se convertiría en:
+
+ 
+<c:forEach items="${FormRegistro.listaAficiones}" var="aficion">
+   <html-el:multibox property="aficiones">${aficion}</html-el:multibox> ${aficion}
+</c:forEach>   

@@ -9,8 +9,12 @@
     <!-- ========================= form-beans ===============================-->
     <!--
     Definicion de todos los Form usados en los JSP
+    Con esta definicion no es necesario incluir los useBean en los JSP
+    name        Identificador que asigna Struts a la instancia creada
+    type        Nombre cualificado de la clase
     -->
     <form-beans>
+        <form-bean name="UsuarioForm" type="com.ade.action.form.UsuarioForm"/>
         <form-bean name="OficinaForm" type="com.ade.action.form.OficinaForm"/>
         <form-bean name="LoginForm" type="com.ade.action.form.LoginForm"/>
     </form-beans>
@@ -48,7 +52,7 @@
         <action 
             path="/usuario"
             type="com.ade.action.UsuariosAction"
-            input="/form/usuario.jsp"
+            input="/form/login.jsp"
             name="UsuarioForm"  
             scope="session">
             <!-- forward locales del action (No accesibles por otros action) -->
@@ -65,6 +69,7 @@
             type="com.ade.action.OficinasAction">
             <forward name="oficina" path="/form/oficina.page"/>
         </action>
+        <action input="/" name="LoginForm" path="/validar" scope="session" type="com.ade.action.ValidarAction"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

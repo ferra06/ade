@@ -49,4 +49,12 @@ public class UsuariosAction extends org.apache.struts.action.Action {
         
         return mapping.findForward(CAMBIAR_CLAVE);
     }
+    
+    
+    public ActionForward login(ActionMapping mapping, ActionForm form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+        /* IMPLEMENTACION */
+        return mapping.findForward(LOGIN);
+    }
 }

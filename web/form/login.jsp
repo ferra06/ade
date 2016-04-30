@@ -1,58 +1,75 @@
-<%-- 
-    Document   : login
-    Created on : 23/04/2016, 15:14:31
-    Author     : Agente 87
---%>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
+<%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
-    
-    <!-- SECCION head : Informacion sobre el documento (No mostrada por el navegador)  -->
+
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title> Administracion de documentos electronicos </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Ingreso al sistema</title>
     </head>
-    
-    <!-- 
-    Bajo el tags <&codigo&> se introduce codigo Java.
-    javax.servlet.jsp.PageContext permite referencia el contexto de la pagina JSP,
-    permite acceso centralizado los distintos atributos de la pagina, 
-    proporciona funcionalidades genercias. 
-    javax.servlet.http.HttpServletRequest permite referenciar el contexto de peticion HTTP
-    -->
-    <%pageContext.setAttribute("urlDestino", request.getParameter("urlDestino")); %>
-    
-    
-    <!-- Datos mostrados en la pagina HTML -->
-    <body>
-        <center>
-            <h3><b> Ingreso al sistema </b></h3>
+
+    <%pageContext.setAttribute("urlDestino", request.getParameter("urlDestino"));%>
+
+    <body topmargin="60"  bottommargin="50">
+
+        <center><a href="${pageContext.request.contextPath}/" style="text-decoration: none">
+                <h2 >ADMINISTRACI&Oacute;N DE DOCUMENTOS ELECTR&Oacute;NICOS</h2></a>
         </center>
-        <br><br><br><br><br>
-        <!--
-        Tabla[3;2]
-        Usuario :___
-        Password:___
-        aceptar cancelar
-        -->
-        <table class="form-block" align="center">
-            <tr>
-                <th align="right" >Usuario:</th>
-                <td> <input type="text" name="usuario"> </td>
-            </tr>
-            <tr>
-                <th align="right" >Clave:</th>
-                <td> <input type="password" name="clave"> </td>
-            </tr>
-            <tr>
-                <th>  </th>
-                <th> <input type="button" value="Aceptar"> 
-                     <input type="button" value="Cancepar"> 
-                </th>
-            </tr>
-            
-        </table>
-        
+        <hr>
+
+        <center>
+            <img src="${pageContext.request.contextPath}/images/java_logo.png" width="100" height="130">
+        </center>
+
+
+        <div id="ctr" align="center">
+            <div class="login"> 
+                <div class="login-form">
+                    <h3 >Ingreso al sistema</h3>
+
+                    <!-- TAG de Struts: Define un Form (Asociado a Action y ActionForm)-->
+                    <html:form action="usuariosAction" >
+                        
+                        <!-- TAG de Struts: Propiedad no visible para el usuario -->
+                        <html:hidden property="urlDestino" value="${urlDestino}" />
+
+                        <table class="form-block" align="center">
+                            <tr>
+                                <th align="right" >Usuario:</th>
+                                <td>
+                                    <!-- TAG de Struts: Campo de texto - Asociado a login.name -->
+                                    <html:text property="name"/>
+                                    <html:errors property="name"/>
+                                    </td>
+                            </tr>
+                            <tr>
+                                <th align="right" >Clave:</th>
+                                <td>
+                                    <!-- TAG de Struts: Campo de pass - Asociado a login.password -->
+                                    <html:password property="password" maxlength="15"/>
+                                    <html:errors property="password"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <html:submit  value="Ingresar" styleClass="buttonBlue"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </html:form>
+
+
+                </div>
+            </div>
+        </div>
+        <div align="center">	
+            <html:errors/>
+        </div>
+        <br>
+        <hr>    
     </body>
+
 </html>
+
